@@ -1,0 +1,34 @@
+<div class="container mt-3">
+    <h1>Viajes</h1>
+    <div class="row">
+        <div class="col-md-5">
+            <form [formGroup]="form" (ngSubmit)="guardar()">
+                <div>
+                    <label for="empleado">Empleado</label>
+                    <select formControlName="empleado" name="empleado" class="form-control"
+                        [ngClass]="{'is-invalid': isInvalidControl('empleado') }">
+                        <option *ngFor="let empleado of empleados" [value]="empleado.id">{{ empleado.id }} -
+                            {{empleado.nombre}}</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="carro">Carro</label>
+                    <select formControlName="carro" name="carro" class="form-control"
+                        [ngClass]="{'is-invalid': isInvalidControl('carro') }">
+                        <option *ngFor="let carro of carros" [value]="carro.id">{{ carro.id }} -
+                            {{carro.marca}} - {{carro.modelo}}</option>
+                    </select>
+                </div>
+                <div class="d-flex justify-content-around mt-3">
+                    <button type="submit" class="btn btn-success"><i class="bi bi-arrow-bar-right"></i> Iniciar
+                        viaje</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <hr>
+    <div class="row mt-3">
+        <app-tabla [columns]="columns" [data]="mapViajes" [options]="options" (optionClick)="onOptionClick($event)">
+        </app-tabla>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="container">
+    <form class="login-form mx-auto mt-5" [formGroup]="form" (ngSubmit)="login()">
+        <h1 class="text-center">Inicio de sesión</h1>
+        <div>
+            <label for="user">Usuario</label>
+            <input formControlName="username" type="text" name="user" class="form-control is-invalid"
+                [ngClass]="{'is-invalid': isInvalidControl('username') }">
+        </div>
+        <div>
+            <label for="pass">Contraseña</label>
+            <input formControlName="password" type="password" name="pass" class="form-control"
+                [ngClass]="{'is-invalid': isInvalidControl('password') }">
+        </div>
+        <div *ngIf="errorMessage !== ''" class="alert alert-danger mt-3" role="alert">
+            {{errorMessage}}
+        </div>
+        <div class="d-grid mt-3">
+            <button type="submit" class="btn btn-lg btn-primary"> Ingresar </button>
+        </div>
+    </form>
+</div>
