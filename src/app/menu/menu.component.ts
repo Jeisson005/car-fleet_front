@@ -1,5 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { CarrosUsoComponent } from '../carros-uso/carros-uso.component';
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-menu',
@@ -8,11 +10,20 @@ import { CarrosUsoComponent } from '../carros-uso/carros-uso.component';
 })
 export class MenuComponent {
   @ViewChild('carrosUso') modal!: CarrosUsoComponent;
-  public isMenuCollapsed = false;
+  public isMenuCollapsed: boolean;
+
+  constructor(private authService: AuthService, private router: Router) {
+    this.isMenuCollapsed = false;
+  }
 
   carrosEnUso() {
     if (this.modal) {
       this.modal.open();
     }
+  }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 }

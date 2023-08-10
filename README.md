@@ -1,27 +1,45 @@
-# CarFleetFront
+# Car fleet front
+## Descripción
+Prueba práctica Angular.<br/>
+Aplicación web (SPA) en Angular (v12+ o superior) que interactúe con los puntos finales proporcionados por el back-end.
+## Alcances y limitaciones
+El proyecto cuenta con todos y cada uno de los requerimientos descritos en el documento recibido, sin embargo es importante mencionar algunos ajustes y delimitaciones que se establecieron durante el desarrollo:
+- Algunos nombres de menús se cambiaron (por ejemplo Mantener a Gestionar)
+- Sí se contemplaron las validaciones y manejo de exepciones en los componentes
+- No se desarrollaron tablas paginadas o filtros avanzados en los componentes
+- El mecanismo de renovación del token jwt es la renovación cada hora (tiempo configurable) siempre que el usuario tenga abierta la aplicación Web
+- Se cuenta con mecanismos de seguridad tanto a nivel de back como a nivel de front, restringiendo el acceso a las rutas
+- Se crearon los archivos necesarios para ejecutar el proyecto con docker compose
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.
+## Ejecución
+Las siguientes son las posibles formas de ejecución, las variables requeridas estan ya con sus valores por defecto en cada archivo, por lo que es probable que no se requiera ninguna configuración adicional, el servicio debería ser desplegado en:
+```
+http://localhost:4200
+```
+El archivo [enviroment.ts](src/enviroment.ts) cuenta con todas las variables de entorno y sus valores por defecto, puede ser configurado según se requiera (aquí está la uri del backend y el tiempo de renovación del token jwt).
+### Angular CLI
+El proyecto puede ser ejecutado directamente con el Angular CLI:
+```
+ng serve
+```
+### Docker compose 
+Puede ser ejecutado usando `docker-compose up` o en la última versión de docker:
+```
+docker compose up
+```
+## Desarrollo y tecnologías
+Estas son las tecnologías utilizadas y algunos elementos puntuales:
 
-## Development server
+- Angular (16.1.8)
+- Bootstrap (5)
+- Angular Interceptor y Angular Guard: Para la seguridad
+- Sweetalert2: Alertas de mensajes de carga, éxito y error
+- Reactive forms: Todos los formularios fueron consturídos con buenas prácticas aplicando reactive forms
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+# Soporte
+Creador y autor:
+| Campo | Valor |
+| ------ | ------ |
+| Nombre | Jeisson Piñeros|
+| Correos | jeisson005@hotmail.com <br> jeissonp005@gmail.com <br> jrpinerosr@udistrital.edu.co|
+| Teléfono | <a href="tel:573115339687">+57 3115339687</a> |

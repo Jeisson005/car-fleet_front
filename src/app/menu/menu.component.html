@@ -1,44 +1,51 @@
-<div class="container bg-dark menu pt-3">
-    <a [routerLink]="'/login'" class="text-decoration-none">
-        <h3 class="text-white">Car fleet</h3>
-    </a>
-    <hr class="text-white">
-    <h5 class="text-white">Empleados</h5>
-    <ul class="navbar-nav">
-        <li class="nav-item">
-            <a class="nav-link text-white" [routerLink]="'/empleados'">
-                > Gestionar
-            </a>
-        </li>
-    </ul>
-    <hr class="text-white">
-    <h5 class="text-white">Carros</h5>
-    <ul class="navbar-nav">
-        <li class="nav-item">
-            <a class="nav-link text-white" [routerLink]="'carros'">
-                > Gestionar
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link text-white" role="button" (click)="carrosEnUso()">
-                > En uso
-            </a>
-        </li>
-    </ul>
-    <hr class="text-white">
-    <h5 class="text-white">Viajes</h5>
-    <ul class="navbar-nav">
-        <li class="nav-item">
-            <a class="nav-link text-white" [routerLink]="'viajes'">
-                > Gestionar
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link text-white" [routerLink]="'viajes-realizados'">
-                > Realizados
-            </a>
-        </li>
-    </ul>
+<div class="container menu pt-3 pb-3">
+    <div class="d-flex justify-content-between align-items-center">
+        <a [routerLink]="''" class="text-decoration-none">
+            <h3 class="text-white d-block">Car fleet</h3>
+        </a>
+        <button class="navbar-toggler text-white" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">&#9776;</button>
+    </div>
+    <button type="button" class="btn btn-light" ngbTooltip="Cerrar sesión" (click)="logout()"><i
+            class="bi bi-box-arrow-left"></i></button>
+    <div #collapse="ngbCollapse" [(ngbCollapse)]="isMenuCollapsed">
+        <hr class="text-white">
+        <h5 class="text-white">Empleados</h5>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link text-white" [routerLink]="'/empleados'">
+                    > Gestionar
+                </a>
+            </li>
+        </ul>
+        <hr class="text-white">
+        <h5 class="text-white">Carros</h5>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link text-white" [routerLink]="'carros'">
+                    > Gestionar
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" role="button" (click)="carrosEnUso()">
+                    > En uso
+                </a>
+            </li>
+        </ul>
+        <hr class="text-white">
+        <h5 class="text-white">Viajes</h5>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link text-white" [routerLink]="'viajes'">
+                    > Gestionar
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" [routerLink]="'viajes-realizados'">
+                    > Realizados
+                </a>
+            </li>
+        </ul>
+    </div>
 </div>
 <app-carros-uso #carrosUso>
 </app-carros-uso>

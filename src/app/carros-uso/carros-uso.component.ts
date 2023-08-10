@@ -21,7 +21,7 @@ export class CarrosUsoComponent {
       { id: 'id', name: 'ID' },
       { id: 'modelo', name: 'Modelo' },
       { id: 'marca', name: 'Marca' },
-      { id: 'fechaFabricacion', name: 'Fecha fabricación' },
+      { id: 'fechaFabricacion', name: 'Fecha fabricación', pipe: 'dd/MM/yyyy'  },
     ];
   }
 
@@ -41,5 +41,9 @@ export class CarrosUsoComponent {
       );
 		this.modalService.open(this.content, { ariaLabelledBy: 'modal-carros' });
 	}
+
+  get mapCarros() {
+    return this.carros.map((carro) => { carro.fechaFabricacion = new Date(carro.fechaFabricacion); return carro;});
+  }
 
 }

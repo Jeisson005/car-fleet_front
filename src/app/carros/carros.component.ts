@@ -24,7 +24,7 @@ export class CarrosComponent {
       { id: 'id', name: 'ID' },
       { id: 'modelo', name: 'Modelo' },
       { id: 'marca', name: 'Marca' },
-      { id: 'fechaFabricacion', name: 'Fecha fabricación' },
+      { id: 'fechaFabricacion', name: 'Fecha fabricación', pipe: 'dd/MM/yyyy' },
     ];
     this.options = [
       { icon: 'bi-pencil-fill', btn: 'btn-secondary', name: 'Editar' },
@@ -52,6 +52,10 @@ export class CarrosComponent {
         }
       }
       );
+  }
+
+  get mapCarros() {
+    return this.carros.map((carro) => { carro.fechaFabricacion = new Date(carro.fechaFabricacion); return carro;});
   }
 
   onOptionClick(event: { optionName: string, element: any }): void {

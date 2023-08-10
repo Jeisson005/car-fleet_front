@@ -1,8 +1,9 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, Pipe } from '@angular/core';
 
 export interface Column {
   id: string;
   name: string;
+  pipe?: string;
 }
 
 export interface Option {
@@ -31,6 +32,10 @@ export class TablaComponent {
     if (element.excludedOptions && Array.isArray(element.excludedOptions))
       return !element.excludedOptions.includes(option.name);
     return true;
+  }
+
+  isValidDatePipe(row: any, column: any): boolean {
+    return row[column.id] instanceof Date && column.pipe;
   }
 
 }

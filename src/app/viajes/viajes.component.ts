@@ -27,8 +27,8 @@ export class ViajesComponent {
       { id: 'id', name: 'ID' },
       { id: 'empleado', name: 'Empleado' },
       { id: 'carro', name: 'Carro' },
-      { id: 'fechaRetirada', name: 'Fecha recogida' },
-      { id: 'fechaEntrega', name: 'Fecha entrega' },
+      { id: 'fechaRetirada', name: 'Fecha recogida', pipe: 'dd/MM/yyyy HH:mm' },
+      { id: 'fechaEntrega', name: 'Fecha entrega', pipe: 'dd/MM/yyyy HH:mm' },
     ];
     this.options = [
       { icon: 'bi-arrow-bar-left', btn: 'btn-warning', name: 'Devolver' }
@@ -73,8 +73,8 @@ export class ViajesComponent {
       id: item.id,
       empleado: `${item.empleado.id} - ${item.empleado.nombre}`,
       carro: `${item.carro.id} - ${item.carro.marca} - ${item.carro.modelo}`,
-      fechaRetirada: item.fechaRetirada,
-      fechaEntrega: item.fechaEntrega,
+      fechaRetirada: item.fechaRetirada ? new Date(item.fechaRetirada) : null,
+      fechaEntrega: item.fechaEntrega ? new Date(item.fechaEntrega) : null,
       excludedOptions: item.fechaEntrega ? ['Devolver'] : null
     }));
   }
@@ -83,9 +83,6 @@ export class ViajesComponent {
     this.form.markAllAsTouched();
     if (this.form.valid) {
       Swal.fire({ title: 'Cargando...', allowOutsideClick: false, didOpen: () => { Swal.showLoading() } });
-      console.log(this.form.value);
-      console.log(this.form.value.empleado);
-      console.log(this.form.value.carro);
       this.apiService.retirarCarro(this.form.value.empleado, this.form.value.carro)
         .subscribe({
           next: (result) => {
