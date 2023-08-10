@@ -12,7 +12,8 @@
             <tr *ngFor="let row of data">
                 <td *ngFor="let column of columns">{{ row[column.id] }}</td>
                 <td *ngFor="let option of options">
-                    <button type="button" class="btn {{ option.btn }}" (click)="onOptionClick(option, row)">
+                    <button *ngIf="shouldShowOption(option, row)" type="button" class="btn {{ option.btn }}"
+                        (click)="onOptionClick(option, row)">
                         <i class="bi {{ option.icon }}"></i>
                     </button>
                 </td>

@@ -74,7 +74,8 @@ export class ViajesComponent {
       empleado: `${item.empleado.id} - ${item.empleado.nombre}`,
       carro: `${item.carro.id} - ${item.carro.marca} - ${item.carro.modelo}`,
       fechaRetirada: item.fechaRetirada,
-      fechaEntrega: item.fechaEntrega
+      fechaEntrega: item.fechaEntrega,
+      excludedOptions: item.fechaEntrega ? ['Devolver'] : null
     }));
   }
 

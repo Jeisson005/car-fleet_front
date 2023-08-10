@@ -27,4 +27,10 @@ export class TablaComponent {
     this.optionClick.emit({ optionName: option.name, element });
   }
 
+  shouldShowOption(option: Option, element: any): boolean {
+    if (element.excludedOptions && Array.isArray(element.excludedOptions))
+      return !element.excludedOptions.includes(option.name);
+    return true;
+  }
+
 }
