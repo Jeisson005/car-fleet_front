@@ -21,6 +21,7 @@ export class EmpleadosComponent {
     this.columns = [
       { id: 'id', name: 'ID' },
       { id: 'nombre', name: 'Nombre' },
+      { id: 'matricula', name: 'Matricula' },
     ];
     this.options = [
       { icon: 'bi-pencil-fill', btn: 'btn-secondary', name: 'Editar' },
