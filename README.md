@@ -11,6 +11,10 @@ El proyecto cuenta con todos y cada uno de los requerimientos descritos en el do
 - Se cuenta con mecanismos de seguridad tanto a nivel de back como a nivel de front, restringiendo el acceso a las rutas
 - Se crearon los archivos necesarios para ejecutar el proyecto con docker compose
 
+## Despliegue
+Para facilidad de la revisión el proyecto se desplegó en: </br>
+[http://35.168.6.153:4200](http://35.168.6.153:4200)
+
 ## Ejecución
 Las siguientes son las posibles formas de ejecución, las variables requeridas estan ya con sus valores por defecto en cada archivo, por lo que es probable que no se requiera ninguna configuración adicional, el servicio debería ser desplegado en:
 ```
@@ -23,9 +27,9 @@ El proyecto puede ser ejecutado directamente con el Angular CLI:
 ng serve
 ```
 ### Docker compose 
-Puede ser ejecutado usando `docker-compose up` o en la última versión de docker:
+Puede ser ejecutado usando `docker-compose up --build` o en la última versión de docker:
 ```
-docker compose up
+docker compose up --build
 ```
 ## Desarrollo y tecnologías
 Estas son las tecnologías utilizadas y algunos elementos puntuales:
