@@ -49,8 +49,8 @@ export class ViajesRealizadosComponent {
               id: item.id,
               empleado: `${item.empleado.id} - ${item.empleado.nombre}`,
               carro: `${item.carro.id} - ${item.carro.marca} - ${item.carro.modelo}`,
-              fechaRetirada: item.fechaRetirada,
-              fechaEntrega: item.fechaEntrega
+              fechaRetirada: item.fechaRetirada ? new Date(item.fechaRetirada) : null,
+              fechaEntrega: item.fechaEntrega ? new Date(item.fechaEntrega) : null
             }));
             Swal.close();
           },
