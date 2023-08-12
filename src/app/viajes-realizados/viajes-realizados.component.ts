@@ -21,8 +21,8 @@ export class ViajesRealizadosComponent {
       { id: 'id', name: 'ID' },
       { id: 'empleado', name: 'Empleado' },
       { id: 'carro', name: 'Carro' },
-      { id: 'fechaRetirada', name: 'Fecha recogida' },
-      { id: 'fechaEntrega', name: 'Fecha entrega' },
+      { id: 'fechaRetirada', name: 'Fecha recogida', pipe: 'dd/MM/yyyy HH:mm' },
+      { id: 'fechaEntrega', name: 'Fecha entrega', pipe: 'dd/MM/yyyy HH:mm' },
     ];
   }
 
