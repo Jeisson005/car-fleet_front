@@ -22,9 +22,12 @@ http://localhost:4200
 ```
 El archivo [enviroment.ts](src/enviroment.ts) cuenta con todas las variables de entorno y sus valores por defecto, puede ser configurado según se requiera (aquí está la uri del backend y el tiempo de renovación del token jwt).
 ### Angular CLI
-El proyecto puede ser ejecutado directamente con el Angular CLI:
+El proyecto puede ser ejecutado directamente con npm:
 ```
-ng serve
+npm install
+```
+```
+npm start
 ```
 ### Docker compose 
 Puede ser ejecutado usando `docker-compose up --build` o en la última versión de docker:
